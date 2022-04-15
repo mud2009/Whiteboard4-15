@@ -44,6 +44,20 @@ function dedupe(arr){
   return arr
 }
 
+// one for loop
+
+function dedupeOne(arr){
+  let newArr = [];
+  for (let i = 0; i < arr.length; i ++){
+    if(!newArr.includes(arr[i])){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr
+}
+
+// console.log(dedupeOne([7, 9, "hi", 12, "hi", 7, 53]))
+
 // with set
 
 function dedupeSet(arr){
@@ -75,7 +89,7 @@ function dedupeRecursion(arr, newArr = []){
 function compress(str){
   let arr = []
   let counter = 1
-  if (typeofstr !== 'string')
+  if (typeof str !== 'string') return "not a string!"
   for (let i = 0; i < str.length; i ++){
     if(str[i] === str[i + 1]){
       counter ++
@@ -90,6 +104,8 @@ function compress(str){
   }
   return arr.join("");
 }
+
+console.log(compress(1))
 
 function compressRec(str, newStr = [], counter = 1){
   if (str.length === 0){
