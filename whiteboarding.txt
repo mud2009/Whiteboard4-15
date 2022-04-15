@@ -1,0 +1,47 @@
+hello
+
+input: "hello"
+
+output: "he2lo"
+
+> iterate through str
+>  compare str[i] to str[i + 1]
+> add to counter if they are equal
+> counter > 1 
+>push  counter to arr
+> pusher str[i] to arr
+> counter back to 1
+
+function compress(str){ // "hello"
+	let arr = []
+	let counter = 1
+	for (let i = 0; i < str.length; i ++){ hel
+		if (str[i] === str[i + 1]){ l === o
+			counter ++ // 2
+		} else {
+			if (counter > 1){ 
+				arr.push(counter)
+			}
+			arr.push(str[i])
+			counter = 1
+		}
+	}
+	return arr.join("") he2lo
+}
+
+function compressRec(str, newStr = [], counter = 1){ // hello
+	if (str.length === 0){
+		return newStr.join("")
+	} else {
+		if (str[0] === str[1]){
+			counter ++
+		} else {
+			if (counter > 1){
+				newStr.push(counter)
+			}
+			newStr.push(str[0])
+			counter = 1
+		}
+		return compressRec(str.slice(1), newStr, counter)
+	} 
+}
