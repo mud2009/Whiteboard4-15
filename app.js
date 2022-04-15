@@ -14,10 +14,11 @@ function stringToUrl(string){
 
 // // with recursion
 
-function stringToUrlRecursive(string){
+function stringToUrlRecursive(string, url){
   if (string === ""){
-    return ""
+    return url
   }
+  string.split(" ")
   return stringToUrlRecursive
 }
 
@@ -29,6 +30,8 @@ function stringToUrlRecursive(string){
 // Input: [7, 9, "hi", 12, "hi" 7, 53]
 
 // Output: [7, 9, "hi", 12, 53]
+
+// two for loops
 
 function dedupe(arr){
   for(let i = 0; i < arr.length; i++){
@@ -69,26 +72,44 @@ function dedupeRecursion(arr, newArr = []){
 
 // Output: "3ab2c4da"
 
-function compress(x){
+function compress(str){
   let arr = []
   let counter = 1
-  for (let i = 0; i < x.length; i ++){
-    if(x[i] === x[i + 1]){
+  if (typeofstr !== 'string')
+  for (let i = 0; i < str.length; i ++){
+    if(str[i] === str[i + 1]){
       counter ++
     }
     else {
       if (counter > 1){
         arr.push(counter)
       }
-      arr.push(x[i])
+      arr.push(str[i])
       counter = 1
     }
   }
   return arr.join("");
 }
 
+function compressRec(str, newStr = [], counter = 1){
+  if (str.length === 0){
+    return newStr.join("")
+  }
+  else {
+    if(str[0] === str[1]){
+      counter ++
+    } else {
+      if (counter > 1){
+        newStr.push(counter)
+      }
+      newStr.push(str[0])
+      counter = 1
+    }
+    return compressRec(str.slice(1), newStr, counter)
+  }
+}
 
-console.log(compressRec("aaabccdddda"))
+console.log(compressRec("wwwwiiiiiiiiiillllllllllllllllllllggggggreeeeeeeeennnnnnnnbbbbbbbbbeeeerrrg"))
 
 // Question #4: Checking for Uniqueness
 // Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
