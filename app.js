@@ -16,7 +16,7 @@ function stringToUrl(string){
 
 function stringToUrlRecursive(string){
   if (string === ""){
-    return
+    return ""
   }
   return stringToUrlRecursive
 }
@@ -41,6 +41,12 @@ function dedupe(arr){
   return arr
 }
 
+// with set
+
+function dedupeSet(arr){
+  return [...new Set(arr)]
+}
+
 // with filter
 
 function dedupeFilter(arr){
@@ -49,7 +55,7 @@ function dedupeFilter(arr){
 
 // with recursion
 
-function dedupeRecursion(arr){
+function dedupeRecursion(arr, newArr = []){
   if(arr === []){
     return "empty arr";
   }
@@ -63,6 +69,17 @@ function dedupeRecursion(arr){
 // Input: "aaabccdddda"
 
 // Output: "3ab2c4da"
+
+function compress(x){
+  let counter = 1
+  for (let i = 0; i < x.length; i ++){
+    if(){
+      if(){
+        
+      }
+    }
+  }
+}
 
 // Question #4: Checking for Uniqueness
 // Write an algorithm that determines whether all the elements in a string are unique. You may not convert the string into an array or use array methods to solve this problem. The algorithm should return a boolean.
